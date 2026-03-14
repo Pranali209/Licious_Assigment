@@ -35,12 +35,17 @@ export default function TaskForm({ onAddTask, onUpdateTask, onClose, taskToEdit 
   }
 
   const handleSubmit = (event) => {
+    
     event.preventDefault()
 
     if (!form.title.trim()) {
       return
     }
 
+    if(form.title == "" || form.description == "" || form.priority == "" || form.dueDate == ""){
+      alert("Please fill all the fields")
+      return
+    }
     const taskPayload = {
       ...form,
       id: taskToEdit?.id || (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}`),

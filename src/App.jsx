@@ -197,6 +197,7 @@ function App() {
             onToggleStatus={handleToggleStatus}
             onDelete={handleDelete}
             onEdit={handleStartEdit}
+            setTasks={setTasks}
           />
         </section>
       </div>

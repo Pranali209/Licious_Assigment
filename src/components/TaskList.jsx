@@ -1,6 +1,21 @@
+import { DndContext, closestCenter } from "@dnd-kit/core"
+import { SortableContext, rectSortingStrategy, arrayMove } from "@dnd-kit/sortable"
 import TaskItem from './TaskItem'
 
-export default function TaskList({ tasks, viewMode, onToggleStatus, onDelete, onEdit }) {
+export default function TaskList({ tasks, viewMode, onToggleStatus, onDelete, onEdit , setTasks }) {
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event
+
+    if (!over) return
+
+    if (active.id !== over.id) {
+      const oldIndex = tasks.findIndex((task) => task.id === active.id)
+      const newIndex = tasks.findIndex((task) => task.id === over.id)
+
+      setTasks(arrayMove(tasks, oldIndex, newIndex))
+    }
+  }
   if (!tasks.length) {
     return (
       <div className="rounded-xl border border-slate-200 bg-white p-10 text-center shadow-sm">
@@ -58,17 +73,24 @@ export default function TaskList({ tasks, viewMode, onToggleStatus, onDelete, on
   }
 
   return (
-    <div className="space-y-3 flex flex-wrap  items-center gap-3">
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          viewMode={viewMode}
-          onToggleStatus={onToggleStatus}
-          onDelete={onDelete}
-          onEdit={onEdit}
-        />
-      ))}
-    </div>
+    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <SortableContext
+      items={tasks.map((task) => task.id)}
+      strategy={rectSortingStrategy}
+    >
+      <div className="flex flex-wrap gap-3">
+        {tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            viewMode={viewMode}
+            onToggleStatus={onToggleStatus}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
+        ))}
+      </div>
+    </SortableContext>
+  </DndContext>
   )
 }
