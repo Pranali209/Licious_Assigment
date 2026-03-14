@@ -1,16 +1,163 @@
-# React + Vite
+# Task Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **Task Management Dashboard** built with **React** that allows users to create, manage, and track tasks efficiently.
+The application supports task creation, editing, deletion, filtering, and status tracking with persistent data storage.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+### Task Management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Create tasks with:
 
-## Expanding the ESLint configuration
+  * Title
+  * Description
+  * Priority (Low / Medium / High)
+  * Due Date
+* Edit existing tasks
+* Delete tasks with confirmation
+* Mark tasks as **Completed** or **Pending**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Task Views
+
+* **List View** – Displays tasks in a structured table format
+* **Card View** – Displays tasks as individual cards
+
+### Filtering & Search
+
+* Search tasks by **title or description**
+* Filter tasks by:
+
+  * All Tasks
+  * Pending Tasks
+  * Completed Tasks
+  * Priority (Low / Medium / High)
+
+### Task Statistics
+
+Dashboard shows:
+
+* Total Tasks
+* Pending Tasks
+* Completed Tasks
+
+### Data Persistence
+
+* Tasks are stored in **localStorage**
+* Data remains available even after page refresh
+
+### Responsive Design
+
+* Works across:
+
+  * Desktop
+  * Tablet
+  * Mobile devices
+
+
+---
+
+# 🛠️ Tech Stack
+
+* **React**
+* **Vite**
+* **Tailwind CSS**
+* **JavaScript**
+* **localStorage**
+
+---
+
+
+
+```
+src
+│
+├── components
+│   ├── TaskForm.jsx
+│   ├── TaskCard.jsx
+│   ├── TaskList.jsx
+│   ├── Filters.jsx
+│   └── Stats.jsx
+│
+├── pages
+│   └── Dashboard.jsx
+│
+├── tests
+│   ├── TaskCard.test.jsx
+│   ├── TaskList.test.jsx
+│   └── TaskForm.test.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```
+https://github.com/Pranali209/Licious_Assigment.git
+```
+
+### 2️⃣ Navigate to the project folder
+
+```
+cd Licious_Assigmen
+```
+
+### 3️⃣ Install dependencies
+
+```
+npm install
+```
+
+### 4️⃣ Run the development server
+
+```
+npm run dev
+```
+
+The app will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+
+
+
+
+# 📸 Screenshots
+
+## Dashboard Overview
+
+![Dashboard with card view ](image.png)
+
+## List View
+![List view](image-1.png)
+
+
+## Dark theme
+![Dark Theme](image-2.png)
+
+
+---
+
+
+
+`localStorage` is used to persist task data so users don't lose their tasks after refreshing the page.
+
+---
+
+
+---
+
+
+
+
+
