@@ -22,7 +22,7 @@ The application supports task creation, editing, deletion, filtering, and status
 ### Task Views
 
 * **List View** – Displays tasks in a structured table format
-* **Card View** – Displays tasks as individual cards
+* **Card View** – Displays tasks as individual cards (Drag and drop added only for card view for better experience)
 
 ### Filtering & Search
 
@@ -112,6 +112,8 @@ cd Licious_Assigmen
 
 ```
 npm install
+# install this library for drag and drop 
+npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
 ```
 
 ### 4️⃣ Run the development server
@@ -145,8 +147,9 @@ http://localhost:5173
 ## Dark theme
 ![Dark Theme](image-2.png)
 
-
----
+## Drag Functionality
+---![Drag Functionality](image-3.png)
+use the hamburger menu for dragging the card
 
 
 
